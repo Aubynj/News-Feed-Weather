@@ -1,0 +1,23 @@
+
+<ion-menu [content]="content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list inset no-lines>
+        <button ion-item (click)="openHome()">
+          News
+        </button>
+        <button ion-item (click)="OpenWeather()">
+          Try Weather
+        </button>
+        <button ion-item (click)="whatNew()">
+          What's new
+        </button>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+<ion-nav id="nav" [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

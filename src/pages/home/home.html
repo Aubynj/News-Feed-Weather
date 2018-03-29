@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      News
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+      <ion-refresher (ionRefresh)="doRefresh($event)">
+            <ion-refresher-content
+              pullingIcon="arrow-dropdown"
+              pullingText="Pull to refresh"
+              refreshingSpinner="circles"
+              refreshingText="Refreshing...">
+            </ion-refresher-content>
+      </ion-refresher>
+  
+  <ion-card *ngFor="let item of items" >
+      
+        <img src="{{item.urlToImage}}" (click)="newsTapped($event,item)"/>
+          <ion-card-content>
+            <ion-card-title>
+              <p><b>{{item.title}}</b></p>
+            </ion-card-title>
+              <p>{{item.description}}</p>
+          </ion-card-content>
+
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-left small clear (click)="store(item)">
+            <ion-icon *ngIf="buttonIcon" name="heart-outline"></ion-icon>
+            <ion-icon *ngIf="buttonIcon != true" name="heart"></ion-icon>
+            <div>Like</div>
+          </button>   
+        </ion-col>
+      </ion-row>
+  </ion-card>
+  
+  
+
+
+ <!-- <button ion-button (click)="toggleMenu()" color="primary">Toggle</button>-->
+</ion-content>
